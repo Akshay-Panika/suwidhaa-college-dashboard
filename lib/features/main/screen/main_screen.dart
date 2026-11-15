@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../../core/utils/app_color.dart';
+import '../../ads/widget/ads_card.dart';
 import '../../auth/screen/auth_screen.dart';
 
 // ── Import all your card widgets (adjust paths if needed) ──
+import '../../banner/widget/banner_card.dart';
 import '../../category/widget/category_card.dart';
 import '../../college/widget/college_card.dart';
 import '../../dashboard/widget/dashboard_card.dart';
@@ -38,6 +40,8 @@ class _MainScreenState extends State<MainScreen> {
     _MenuItem('Tiffin', Icons.lunch_dining_rounded),
     _MenuItem('Owner', Icons.person_rounded),
     _MenuItem('Order', Icons.receipt_long_rounded),
+    _MenuItem('Banner', Icons.image_rounded),
+    _MenuItem('Ads', Icons.campaign_rounded),
   ];
 
   Future<void> _logout() async {
@@ -276,6 +280,10 @@ class _MainScreenState extends State<MainScreen> {
         return const OwnerCard();
       case 6:
         return const OrderCard();
+      case 7:
+        return const BannerCard();
+      case 8:
+        return const AdsCard();
       default:
         return DashboardCard(
           onNavigate: (i) => setState(() => _selectedIndex = i),
